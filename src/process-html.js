@@ -1,16 +1,19 @@
 'use strict'
 
 const path = require('path')
-const fs = require('fs')
 const cheerio = require('cheerio')
 const { processImage } = require('./process-image')
 
 const validImgExtensions = ['.jpg', '.jpeg', '.png', '.gif']
 
-const processHtml = (file, config) =>
+const processHtml = file =>
   new Promise((resolve, reject) => {
-    const { rootPath, attribute, srcAttr } = config
-    const fileContent = file.contents.toString('utf8')
+    // const { rootPath, attribute, srcAttr } = config
+    const rootPath = process.cwd()
+    const attribute = 'srcset'
+    const srcAttr = 'src'
+
+    const fileContent = String(file.contents)
     const $ = cheerio.load(fileContent)
     const imageList = $('img').toArray()
 
@@ -18,7 +21,7 @@ const processHtml = (file, config) =>
       .filter(el => {
         const src = $(el).attr(srcAttr)
 
-        // @todo: handle remote images later
+        // TODO: handle remote images later
         if (!src || src.startsWith('http') || src.startsWith('//')) {
           return false
         }
@@ -44,19 +47,10 @@ const processHtml = (file, config) =>
           $(image).attr(attribute, base64)
         })
 
-        const data = $.html()
-
-        fs.writeFile(file.path, data, err => {
-          if (err) {
-            throw err
-          }
-
-          resolve()
-        })
+        file.contents = Buffer.from($.html())
+        resolve(file)
       })
-      .catch(error => reject(error))
+      .catch(err => reject(err))
   })
 
-module.exports = {
-  processHtml
-}
+module.exports = { processHtml }

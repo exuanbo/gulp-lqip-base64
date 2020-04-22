@@ -1,50 +1,30 @@
 'use strict'
 
-const path = require('path')
 const through = require('through2')
 const PluginError = require('plugin-error')
 const { processHtml } = require('./process-html')
 
-const PLUGIN_NAME = 'gulp-image-lqip'
-const validFileExtensions = ['.html', '.htm']
-const defaultConfig = {
-  attribute: 'data-src',
-  srcAttr: 'src'
-}
+const PLUGIN_NAME = 'gulp-srcset-lqip'
 
-module.exports = (rootPath, config = {}) => {
-  const files = []
+const srcsetLqip = () => {
+  return through.obj((file, encoding, callback) => {
+    if (file.isNull()) {
+      return callback(null, file)
+    }
 
-  config = Object.assign(defaultConfig, config)
-
-  if (!path.isAbsolute(rootPath)) {
-    throw new Error(`${PLUGIN_NAME}: rootPath must be absolute`)
-  }
-
-  config.rootPath = rootPath
-
-  function aggregate(file, encoding, done) {
     if (file.isStream()) {
-      return done(new PluginError(PLUGIN_NAME, 'Streams not supported!'))
+      return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'))
     }
 
-    if (!validFileExtensions.includes(path.extname(file.path).toLowerCase())) {
-      return done(
-        new PluginError(PLUGIN_NAME, 'Only htm(l) files are supported!')
-      )
-    }
-
-    files.push(file)
-    done()
-  }
-
-  function transform(done) {
-    const promiseFileList = files.map(file => processHtml(file, config))
-
-    Promise.all(promiseFileList)
-      .then(() => done())
-      .catch(error => done(new PluginError(PLUGIN_NAME, error)))
-  }
-
-  return through.obj(aggregate, transform)
+    ;(async () => {
+      try {
+        file = await processHtml(file)
+        callback(null, file)
+      } catch (err) {
+        callback(new PluginError(PLUGIN_NAME, err))
+      }
+    })()
+  })
 }
+
+module.exports = srcsetLqip
