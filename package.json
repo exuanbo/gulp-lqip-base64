@@ -1,5 +1,5 @@
 {
-  "name": "gulp-srcset-lqip",
+  "name": "gulp-lqip-replace",
   "version": "0.0.0",
   "description": "",
   "main": "src/index.js",
@@ -11,15 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/exuanbo/gulp-srcset-lqip.git"
+    "url": "git+https://github.com/exuanbo/gulp-lqip-replace.git"
   },
   "keywords": [
     "gulpplugin",
     "gulp",
-    "gulp-srcset",
     "gulp-lqip",
+    "gulp-replace",
     "image",
-    "srcset",
     "lqip"
   ],
   "author": {
@@ -29,9 +28,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/exuanbo/gulp-srcset-lqip/issues"
+    "url": "https://github.com/exuanbo/gulp-lqip-replace/issues"
   },
-  "homepage": "https://github.com/exuanbo/gulp-srcset-lqip#readme",
+  "homepage": "https://github.com/exuanbo/gulp-lqip-replace#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "jimp": "^0.10.3",
