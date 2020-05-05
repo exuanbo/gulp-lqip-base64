@@ -2,7 +2,7 @@
 
 const path = require('path')
 const cheerio = require('cheerio')
-const { processImage } = require('./process-image')
+const processImage = require('./process-image')
 
 const validImgExtensions = ['.jpg', '.jpeg', '.png', '.gif']
 
@@ -49,4 +49,4 @@ const processHtml = (file, { attribute = 'data-src', srcAttr = 'src' } = {}) =>
       .catch(err => reject(err))
   })
 
-module.exports = { processHtml }
+module.exports = processHtml

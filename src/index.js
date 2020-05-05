@@ -2,7 +2,7 @@
 
 const through = require('through2')
 const PluginError = require('plugin-error')
-const { processHtml } = require('./process-html')
+const processHtml = require('./process-html')
 
 const PLUGIN_NAME = 'gulp-lqip-replace'
 

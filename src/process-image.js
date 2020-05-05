@@ -31,4 +31,4 @@ const processImage = (pathImg, originalImg) =>
       .catch(error => reject(error))
   })
 
-module.exports = { processImage }
+module.exports = processImage
