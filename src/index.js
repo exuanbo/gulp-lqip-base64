@@ -6,7 +6,7 @@ const { processHtml } = require('./process-html')
 
 const PLUGIN_NAME = 'gulp-srcset-lqip'
 
-const srcsetLqip = () => {
+const srcsetLqip = options => {
   return through.obj((file, encoding, callback) => {
     if (file.isNull()) {
       return callback(null, file)
@@ -18,7 +18,7 @@ const srcsetLqip = () => {
 
     ;(async () => {
       try {
-        file = await processHtml(file)
+        file = await processHtml(file, options)
         callback(null, file)
       } catch (err) {
         callback(new PluginError(PLUGIN_NAME, err))

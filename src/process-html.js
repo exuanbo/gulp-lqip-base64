@@ -6,13 +6,9 @@ const { processImage } = require('./process-image')
 
 const validImgExtensions = ['.jpg', '.jpeg', '.png', '.gif']
 
-const processHtml = file =>
+const processHtml = (file, { attribute = 'data-src', srcAttr = 'src' } = {}) =>
   new Promise((resolve, reject) => {
-    // const { rootPath, attribute, srcAttr } = config
-    const rootPath = process.cwd()
-    const attribute = 'srcset'
-    const srcAttr = 'src'
-
+    const fileDir = file.dirname
     const fileContent = String(file.contents)
     const $ = cheerio.load(fileContent)
     const imageList = $('img').toArray()
@@ -26,13 +22,13 @@ const processHtml = file =>
           return false
         }
 
-        const pathImg = path.join(rootPath, src)
+        const pathImg = path.join(fileDir, src)
 
         return validImgExtensions.includes(path.extname(pathImg).toLowerCase())
       })
       .map(el => {
         const src = $(el).attr(srcAttr)
-        const pathImg = path.join(rootPath, src)
+        const pathImg = path.join(fileDir, src)
 
         return processImage(pathImg, src)
       })
