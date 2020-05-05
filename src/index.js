@@ -4,9 +4,9 @@ const through = require('through2')
 const PluginError = require('plugin-error')
 const { processHtml } = require('./process-html')
 
-const PLUGIN_NAME = 'gulp-srcset-lqip'
+const PLUGIN_NAME = 'gulp-lqip-replace'
 
-const srcsetLqip = options => {
+const lqipReplace = options => {
   return through.obj((file, encoding, callback) => {
     if (file.isNull()) {
       return callback(null, file)
@@ -27,4 +27,4 @@ const srcsetLqip = options => {
   })
 }
 
-module.exports = srcsetLqip
+module.exports = lqipReplace
