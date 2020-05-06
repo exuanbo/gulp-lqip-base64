@@ -10,6 +10,7 @@ const processHtml = (file, { attribute = 'data-src', srcAttr = 'src' } = {}) =>
   new Promise((resolve, reject) => {
     const fileDir = file.dirname
     const fileContent = String(file.contents)
+
     const $ = cheerio.load(fileContent)
     const imageList = $('img').toArray()
 
@@ -23,13 +24,11 @@ const processHtml = (file, { attribute = 'data-src', srcAttr = 'src' } = {}) =>
         }
 
         const pathImg = path.join(fileDir, src)
-
         return validImgExtensions.includes(path.extname(pathImg).toLowerCase())
       })
       .map(el => {
         const src = $(el).attr(srcAttr)
         const pathImg = path.join(fileDir, src)
-
         return processImage(pathImg, src)
       })
 
@@ -39,7 +38,6 @@ const processHtml = (file, { attribute = 'data-src', srcAttr = 'src' } = {}) =>
           const image = imageList.find(
             el => $(el).attr(srcAttr) === originalImg && !$(el).attr(attribute)
           )
-
           $(image).attr(attribute, base64)
         })
 
