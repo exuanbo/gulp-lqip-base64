@@ -7,23 +7,21 @@ const processHtml = require('./process-html')
 const PLUGIN_NAME = 'gulp-lqip-replace'
 
 const lqipReplace = options => {
-  return through.obj((file, encoding, callback) => {
-    if (file.isNull()) {
-      return callback(null, file)
-    }
-
-    if (file.isStream()) {
-      return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'))
-    }
-
-    ;(async () => {
-      try {
-        const newFile = await processHtml(file, options)
-        callback(null, newFile)
-      } catch (err) {
-        return callback(new PluginError(PLUGIN_NAME, err))
+  return through.obj(async (file, encoding, callback) => {
+    try {
+      if (file.isNull()) {
+        return callback(null, file)
       }
-    })()
+
+      if (file.isStream()) {
+        return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'))
+      }
+
+      const newFile = await processHtml(file, options)
+      callback(null, newFile)
+    } catch (err) {
+      return callback(new PluginError(PLUGIN_NAME, err))
+    }
   })
 }
 
