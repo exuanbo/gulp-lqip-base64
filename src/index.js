@@ -4,9 +4,9 @@ const through = require('through2')
 const PluginError = require('plugin-error')
 const processHtml = require('./process-html')
 
-const PLUGIN_NAME = 'gulp-lqip-replace'
+const PLUGIN_NAME = 'gulp-lqip-base64'
 
-const lqipReplace = options => {
+const lqipBase64 = options => {
   return through.obj(async (file, encoding, callback) => {
     try {
       if (file.isNull()) {
@@ -25,4 +25,4 @@ const lqipReplace = options => {
   })
 }
 
-module.exports = lqipReplace
+module.exports = lqipBase64
