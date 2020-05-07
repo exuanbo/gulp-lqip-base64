@@ -28,7 +28,7 @@ const processImage = (pathImg, originalImg) =>
           base64: toBase64(supportedMimetypes[extension], data)
         })
       )
-      .catch(error => reject(error))
+      .catch(err => reject(err))
   })
 
 module.exports = processImage
