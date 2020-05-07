@@ -17,9 +17,9 @@
     "gulpplugin",
     "gulp",
     "gulp-lqip",
-    "gulp-replace",
+    "lqip",
     "image",
-    "lqip"
+    "base64"
   ],
   "author": {
     "name": "exuanbo",
