@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "eslint \"**/*.js\""
+    "test": "eslint \"**/*.js\" && mocha"
   },
   "repository": {
     "type": "git",
