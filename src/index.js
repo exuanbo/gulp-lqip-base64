@@ -21,7 +21,7 @@ const lqipReplace = options => {
         const newFile = await processHtml(file, options)
         callback(null, newFile)
       } catch (err) {
-        callback(new PluginError(PLUGIN_NAME, err))
+        return callback(new PluginError(PLUGIN_NAME, err))
       }
     })()
   })
