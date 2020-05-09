@@ -6,7 +6,7 @@ const processImage = require('./process-image')
 
 const validImgExtensions = ['.jpg', '.jpeg', '.png', '.gif']
 
-const processHtml = (file, { attribute = 'data-src', srcAttr = 'src' } = {}) =>
+const processHtml = (file, { srcAttr = 'src', attribute = 'data-src' } = {}) =>
   new Promise((resolve, reject) => {
     const fileDir = file.dirname
     const fileContent = String(file.contents)
