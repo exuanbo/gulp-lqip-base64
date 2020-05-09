@@ -23,7 +23,6 @@ const processImage = (pathImg, originalImg) =>
       .then(image => image.getBufferAsync(supportedMimetypes[extension]))
       .then(data =>
         resolve({
-          pathImg,
           originalImg,
           base64: toBase64(supportedMimetypes[extension], data)
         })
