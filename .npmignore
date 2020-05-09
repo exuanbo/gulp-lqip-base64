@@ -1,4 +1,5 @@
 .gitattributes
+renovate.json
 test/img/
 test/*.html
 *.tgz
