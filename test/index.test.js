@@ -22,17 +22,16 @@ describe('gulp-lqip-base64', () => {
 
     const stream = lqipBase64({ attribute: 'srcset' })
 
-    stream.on('error', error => {
-      should.exist(error)
-      done(error)
+    stream.on('error', err => {
+      should.exist(err)
+      done(err)
     })
 
     stream.on('data', file => {
       should.exist(file)
       should.exist(file.contents)
 
-      const contents = String(file.contents)
-      should.equal(contents, String(expectedHtml.contents))
+      should.equal(String(file.contents), String(expectedHtml.contents))
       done()
     })
 
