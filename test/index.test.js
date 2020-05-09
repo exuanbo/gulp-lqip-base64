@@ -20,7 +20,7 @@ describe('gulp-lqip-base64', () => {
       contents: fs.readFileSync('test/expected.html')
     })
 
-    const stream = lqipBase64()
+    const stream = lqipBase64({ attribute: 'srcset' })
 
     stream.on('error', error => {
       should.exist(error)
