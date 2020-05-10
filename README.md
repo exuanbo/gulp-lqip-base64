@@ -34,7 +34,7 @@ const lqipBase64 = require('gulp-lqip-base64')
 gulp.task('default', () => {
   return gulp.src('**/*.html', { base: '.' })
     .pipe(lqipBase64({ attribute: 'srcset' }))
-    .pipe(dest('.'))
+    .pipe(gulp.dest('.'))
 })
 ```
 
@@ -62,7 +62,7 @@ Attribute which will contain the Base64 representation of the image.
 
 ## Acknowledgement
 
-Thanks [gulp-image-lqip](https://github.com/Johann-S/gulp-image-lqip) for the inspiration
+Thanks [gulp-image-lqip](https://github.com/Johann-S/gulp-image-lqip) for the inspiration.
 
 ## License
 
