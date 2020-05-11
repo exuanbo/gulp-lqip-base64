@@ -10,6 +10,7 @@
 
 ## Table of Contents
 
+- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Supported files](#supported-files)
@@ -18,6 +19,10 @@
   - [attribute](#attribute)
 - [Acknowledgement](#acknowledgement)
 - [License](#license)
+
+## Demo
+
+<https://exuanbo.github.io/gulp-lqip-base64/>
 
 ## Installation
 
