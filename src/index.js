@@ -20,7 +20,7 @@ const lqipBase64 = options => {
       const newFile = await processHtml(file, options)
       callback(null, newFile)
     } catch (err) {
-      return callback(new PluginError(PLUGIN_NAME, err))
+      callback(new PluginError(PLUGIN_NAME, err))
     }
   })
 }
