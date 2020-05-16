@@ -3,8 +3,8 @@
 > Parses HTML files to find `<img>` tags and adds an attribute to them which contains their Base64 representation.
 
 [![npm (scoped)](https://img.shields.io/npm/v/gulp-lqip-base64.svg?style=flat-square)](https://www.npmjs.com/package/gulp-lqip-base64)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-yellow.svg?style=flat-square)](https://standardjs.com)
-[![Travis (.com)](https://img.shields.io/travis/com/exuanbo/gulp-lqip-base64.svg?style=flat-square)](http://travis-ci.com/exuanbo/gulp-lqip-base64)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
+[![Travis (.com)](https://img.shields.io/travis/com/exuanbo/gulp-lqip-base64/master.svg?style=flat-square)](http://travis-ci.com/exuanbo/gulp-lqip-base64)
 [![David](https://img.shields.io/david/exuanbo/gulp-lqip-base64.svg?style=flat-square)](https://david-dm.org/exuanbo/gulp-lqip-base64)
 [![License](https://img.shields.io/github/license/exuanbo/gulp-lqip-base64.svg?style=flat-square)](https://github.com/exuanbo/gulp-lqip-base64/blob/master/LICENSE)
 
