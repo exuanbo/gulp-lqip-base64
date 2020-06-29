@@ -33,7 +33,7 @@
   "homepage": "https://github.com/exuanbo/gulp-lqip-base64#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "jimp": "^0.13.0",
+    "jimp": "^0.14.0",
     "plugin-error": "^1.0.1",
     "through2": "^4.0.0"
   },
