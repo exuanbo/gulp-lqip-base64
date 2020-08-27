@@ -7,7 +7,7 @@ const processHtml = require('./process-html')
 const PLUGIN_NAME = 'gulp-lqip-base64'
 
 const lqipBase64 = options => {
-  return through.obj(async (file, encoding, callback) => {
+  return through.obj(async (file, _, callback) => {
     try {
       if (file.isNull()) {
         return callback(null, file)
