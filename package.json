@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Parses HTML files to find `<img>` tags and adds an attribute to them which contains their Base64 representation",
   "main": "dist/gulp-lqip-base64.js",
-  "module": "dist/gulp-lqup-base64.es.js",
+  "module": "dist/gulp-lqip-base64.es.js",
   "directories": {
     "test": "test"
   },
