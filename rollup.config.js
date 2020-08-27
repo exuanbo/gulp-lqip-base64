@@ -7,12 +7,12 @@ export default {
   external: ['path', ...Object.keys(pkg.dependencies)],
   output: [
     {
-      file: 'dist/gulp-lqip-base64.js',
+      file: pkg.main,
       format: 'cjs',
       exports: 'auto'
     },
     {
-      file: 'dist/gulp-lqip-base64.es.js',
+      file: pkg.module,
       format: 'es'
     }
   ]
