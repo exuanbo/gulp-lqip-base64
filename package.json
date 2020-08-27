@@ -2,12 +2,14 @@
   "name": "gulp-lqip-base64",
   "version": "1.0.3",
   "description": "Parses HTML files to find `<img>` tags and adds an attribute to them which contains their Base64 representation",
-  "main": "src/index.js",
+  "main": "dist/gulp-lqip-base64.js",
+  "module": "dist/gulp-lqup-base64.es.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "eslint \"**/*.js\" && mocha"
+    "test": "eslint 'src/*.js' && mocha && npm run build",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
