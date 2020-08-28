@@ -13,7 +13,7 @@
 - [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Supported files](#supported-files)
+- [Supported image types](#supported-image-types)
 - [Options](#options)
   - [srcAttr](#srcattr)
   - [attribute](#attribute)
@@ -33,19 +33,25 @@ npm install --save-dev gulp-lqip-base64
 ## Usage
 
 ```javascript
-const gulp = require('gulp')
+const { task, src, dest } = require('gulp')
 const lqipBase64 = require('gulp-lqip-base64')
 
-gulp.task('default', () => {
-  return gulp.src('**/*.html', { base: '.' })
+task('default', () => {
+  return src('**/*.html', { base: '.' })
     .pipe(lqipBase64({ attribute: 'srcset' }))
-    .pipe(gulp.dest('.'))
+    .pipe(dest('.'))
 })
 ```
 
-## Supported files
+or you can
 
-Currently `['jpeg', 'jpg', 'png', 'gif']` files are supported.
+```javascript
+import lqipBase64 from 'gulp-lqip-base64'
+```
+
+## Supported image types
+
+Currently `['jpeg', 'jpg', 'png', 'bmp', 'tiff', 'gif']` are supported.
 
 ## Options
 
@@ -56,7 +62,7 @@ Type: `Object`
 - Type: `String`
 - Default: `src`
 
-Attribute which contain the image.
+Attribute which contain the image path.
 
 ### attribute
 
