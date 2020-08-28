@@ -7,6 +7,8 @@ const supportedMimetypes = {
   jpeg: 'image/jpeg',
   jpg: 'image/jpeg',
   png: 'image/png',
+  bmp: 'image/bmp',
+  tiff: 'image/tiff',
   gif: 'image/gif'
 }
 

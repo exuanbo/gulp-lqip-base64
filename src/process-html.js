@@ -4,7 +4,7 @@ const path = require('path')
 const cheerio = require('cheerio')
 const processImage = require('./process-image')
 
-const validImgExtensions = ['.jpg', '.jpeg', '.png', '.gif']
+const validImgExtensions = ['.jpg', '.jpeg', '.png', '.bmp', 'tiff', '.gif']
 
 const processHtml = (file, { srcAttr = 'src', attribute = 'data-src' } = {}) =>
   new Promise((resolve, reject) => {
