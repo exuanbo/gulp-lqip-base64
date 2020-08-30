@@ -2,40 +2,32 @@
 'use strict'
 
 const fs = require('fs')
-const should = require('should')
+const path = require('path')
+const expect = require('chai').expect
 const Vinyl = require('vinyl')
 const lqipBase64 = require('..')
 
 describe('gulp-lqip-base64', () => {
-  it('Should transform images in test.html, making it equal to expected.html', done => {
-    const testHtml = new Vinyl({
-      base: 'test/',
-      path: 'test/test.html',
-      contents: fs.readFileSync('test/test.html')
-    })
-
-    const expectedHtml = new Vinyl({
-      base: 'test/',
-      path: 'test/expected.html',
-      contents: fs.readFileSync('test/expected.html')
-    })
+  it('works for me', done => {
+    const getFile = filePath => {
+      filePath = path.join(__dirname, 'fixtures', filePath).replace(/\\/g, '/')
+      if (!path.extname(filePath)) filePath += '.html'
+      return new Vinyl({
+        base: path.dirname(filePath),
+        path: filePath,
+        contents: fs.readFileSync(filePath)
+      })
+    }
 
     const stream = lqipBase64({ attribute: 'srcset' })
-
-    stream.on('error', err => {
-      should.exist(err)
-      done(err)
-    })
-
+    stream.on('error', err => done(err))
     stream.on('data', file => {
-      should.exist(file)
-      should.exist(file.contents)
-
-      should.equal(String(file.contents), String(expectedHtml.contents))
+      expect(String(file.contents)).to.equal(
+        String(getFile('expected').contents)
+      )
       done()
     })
-
-    stream.write(testHtml)
+    stream.write(getFile('test'))
     stream.end()
   })
 })
