@@ -8,9 +8,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "eslint 'src/*' && mocha",
+    "test": "mocha",
     "pretest": "rollup -c",
-    "build": "rimraf dist/* && npm test"
+    "build": "rimraf dist && npm test"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,9 @@
     "gulp",
     "gulp-lqip",
     "lqip",
+    "gulp-image",
     "image",
+    "srcset",
     "base64"
   ],
   "author": {
