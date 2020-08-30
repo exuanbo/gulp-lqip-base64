@@ -8,23 +8,11 @@
 [![David](https://img.shields.io/david/exuanbo/gulp-lqip-base64.svg?style=flat-square)](https://david-dm.org/exuanbo/gulp-lqip-base64)
 [![License](https://img.shields.io/github/license/exuanbo/gulp-lqip-base64.svg?style=flat-square)](https://github.com/exuanbo/gulp-lqip-base64/blob/master/LICENSE)
 
-## Table of Contents
-
-- [Demo](#demo)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Supported image types](#supported-image-types)
-- [Options](#options)
-  - [srcAttr](#srcattr)
-  - [attribute](#attribute)
-- [Acknowledgement](#acknowledgement)
-- [License](#license)
-
 ## Demo
 
 <https://exuanbo.github.io/gulp-lqip-base64/>
 
-## Installation
+## Install
 
 ```shell
 npm install --save-dev gulp-lqip-base64
