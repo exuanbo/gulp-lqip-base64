@@ -23,12 +23,12 @@ const processHtml = (file, { srcAttr = 'src', attribute = 'data-src' } = {}) =>
           return false
         }
 
-        const pathImg = path.join(fileDir, src)
+        const pathImg = path.join(src[0] === '/' ? file._base : fileDir, src)
         return validImgExtensions.includes(path.extname(pathImg).toLowerCase())
       })
       .map(el => {
         const src = $(el).attr(srcAttr)
-        const pathImg = path.join(fileDir, src)
+        const pathImg = path.join(src[0] === '/' ? file._base : fileDir, src)
         return processImage(pathImg, src)
       })
 
